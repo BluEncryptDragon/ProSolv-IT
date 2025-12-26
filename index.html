@@ -17,13 +17,50 @@
             color: #333;
         }
 
-        /* Navigation */
+        /* Holiday Banner */
+        .holiday-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .holiday-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .holiday-icon {
+            font-size: 22px;
+        }
+
+        .holiday-text {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .holiday-text strong {
+            font-weight: 700;
+        }
+
+        /* Navigation - adjusted for banner */
         nav {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             padding: 1rem 2rem;
             position: fixed;
             width: 100%;
-            top: 0;
+            top: 46px; /* Adjusted to sit below banner */
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
@@ -71,11 +108,11 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Hero Section - adjusted padding for banner */
         .hero {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 120px 2rem 80px;
+            padding: 166px 2rem 80px; /* Adjusted top padding */
             text-align: center;
         }
 
@@ -473,6 +510,26 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .holiday-banner {
+                padding: 12px 16px;
+            }
+
+            .holiday-text {
+                font-size: 13px;
+            }
+
+            .holiday-icon {
+                font-size: 18px;
+            }
+
+            nav {
+                top: 42px; /* Adjusted for smaller banner on mobile */
+            }
+
+            .hero {
+                padding: 154px 2rem 60px; /* Adjusted for mobile */
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -522,6 +579,16 @@
     </style>
 </head>
 <body>
+    <!-- Holiday Banner -->
+    <div class="holiday-banner">
+        <div class="holiday-banner-content">
+            <span class="holiday-icon">🏖️</span>
+            <div class="holiday-text">
+                <strong>ProSolv IT is currently unavailable</strong> – We will return on <strong>5 January 2026</strong>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
@@ -830,65 +897,4 @@
                 <ul>
                     <li>📞 (+64) 022-522-3014</li>
                     <li>✉️ prosolvit-online@outlook.com</li>
-                    <li>📍 Christchurch, Canterbury, NZ</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 ProSolv IT. All rights reserved. | Professional IT Services & Computer Support</p>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        const formMessage = document.getElementById('formMessage');
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Show success message
-            formMessage.textContent = "Thank you! Your message has been sent successfully. We'll get back to you shortly.";
-            formMessage.className = 'form-message success';
-            formMessage.style.display = 'block';
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
-        });
-    </script>
-</body>
-</html>
+                    <li>📍 Christchurch 
