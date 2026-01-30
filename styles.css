@@ -617,6 +617,14 @@ nav {
     cursor: pointer;
 }
 
+.contact-card {
+    text-decoration: none;      /* remove underline */
+    color: inherit;             /* keep your current color */
+    -webkit-tap-highlight-color: transparent; /* remove iOS tap highlight */
+    -webkit-text-decoration-skip: none;      /* prevent thin blue underline on iOS */
+}
+
+
 
 
 .contact-form {
