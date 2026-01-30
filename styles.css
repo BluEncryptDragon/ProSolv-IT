@@ -697,6 +697,27 @@ footer {
     padding: 3rem 2rem 1rem;
 }
 
+.contact-link {
+    color: inherit;                /* keep text color */
+    text-decoration: none;         /* remove underline */
+    transition: color 0.15s ease;  /* smooth hover effect */
+}
+
+.contact-link:hover,
+.contact-link:focus {
+    color: #0073e6;                /* subtle color change on hover/focus */
+    cursor: pointer;               /* pointer cursor on desktop */
+}
+
+.contact-link:active {
+    transform: scale(0.98);        /* subtle tap effect on mobile */
+}
+
+.contact-link {
+    -webkit-tap-highlight-color: transparent;  /* remove blue highlight on mobile */
+}
+
+
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
