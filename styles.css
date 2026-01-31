@@ -15,19 +15,17 @@ body {
     color: #333;
 }
 
-
 /* Navigation */
 nav {
     background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
     padding: 1rem 2rem;
     position: fixed;
     width: 100%;
-    top: 46px;
+    top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease-in-out;
 }
-
-transition: opacity 0.3s ease-in-out;
 
 .nav-container {
     max-width: 1200px;
@@ -77,7 +75,7 @@ transition: opacity 0.3s ease-in-out;
 .hero {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
-    padding: 166px 2rem 80px;
+    padding: 120px 2rem 80px;
     text-align: center;
 }
 
@@ -167,7 +165,7 @@ transition: opacity 0.3s ease-in-out;
 .emergency-highlight {
     background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
     padding: 3rem 2rem;
-    border-bottom: 4px solid #d97706;
+    margin: 0;
 }
 
 .emergency-content {
@@ -551,15 +549,17 @@ transition: opacity 0.3s ease-in-out;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.contact-card {
-    text-decoration: none;               /* remove underline */
-    color: inherit;                      /* keep text color */
-    -webkit-tap-highlight-color: transparent;  /* removes blue highlight on tap */
-    -webkit-text-decoration-skip: none;       /* prevents iOS underline */
+.contact-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    cursor: pointer;
 }
-
 
 .contact-icon {
     font-size: 2.5rem;
@@ -574,37 +574,6 @@ transition: opacity 0.3s ease-in-out;
 .contact-card p {
     color: #666;
 }
-
-.contact-card {
-    text-decoration: none;
-    color: inherit;
-}
-
-.contact-card:hover {
-    cursor: pointer;
-}
-
-.contact-card {
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.contact-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-    cursor: pointer;
-}
-
-.contact-card {
-    text-decoration: none;      /* remove underline */
-    color: inherit;             /* keep your current color */
-    -webkit-tap-highlight-color: transparent; /* remove iOS tap highlight */
-    -webkit-text-decoration-skip: none;      /* prevent thin blue underline on iOS */
-}
-
-
-
 
 .contact-form {
     max-width: 600px;
@@ -669,25 +638,21 @@ footer {
 }
 
 .contact-link {
-    color: inherit;                /* keep text color */
-    text-decoration: none;         /* remove underline */
-    transition: color 0.15s ease;  /* smooth hover effect */
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .contact-link:hover,
 .contact-link:focus {
-    color: #0073e6;                /* subtle color change on hover/focus */
-    cursor: pointer;               /* pointer cursor on desktop */
+    color: #0073e6;
+    cursor: pointer;
 }
 
 .contact-link:active {
-    transform: scale(0.98);        /* subtle tap effect on mobile */
+    transform: scale(0.98);
 }
-
-.contact-link {
-    -webkit-tap-highlight-color: transparent;  /* remove blue highlight on mobile */
-}
-
 
 .footer-grid {
     display: grid;
@@ -716,16 +681,6 @@ footer {
     transition: color 0.3s;
 }
 
-/* Hover effect for .terms-footer links on desktop */
-@media (hover: hover) and (pointer: fine) {
-    .terms-footer .contact-link:hover,
-    .terms-footer .contact-link:focus {
-        color: #0073e6;      /* subtle color change on hover */
-        cursor: pointer;
-    }
-}
-
-
 .footer-section a:hover {
     color: white;
 }
@@ -739,24 +694,33 @@ footer {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .holiday-banner {
-        padding: 12px 16px;
-    }
-
-    .holiday-text {
-        font-size: 13px;
-    }
-
-    .holiday-icon {
-        font-size: 18px;
-    }
-
     nav {
-        top: 42px;
+        top: 0;
     }
 
     .hero, .page-header {
-        padding: 154px 2rem 60px;
+        padding: 100px 2rem 60px;
+    }
+
+    .emergency-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .emergency-icon {
+        font-size: 3rem;
+    }
+
+    .emergency-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .emergency-text p {
+        font-size: 1rem;
+    }
+
+    .emergency-actions .btn {
+        width: 100%;
     }
 
     .nav-links {
@@ -765,7 +729,7 @@ footer {
         top: 100%;
         left: 0;
         right: 0;
-        background: #1e3c72;
+        background: #dc2626;
         flex-direction: column;
         padding: 1rem;
         gap: 0;
