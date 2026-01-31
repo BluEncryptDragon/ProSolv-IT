@@ -745,6 +745,16 @@ footer {
     transition: color 0.3s;
 }
 
+/* Hover effect for .terms-footer links on desktop */
+@media (hover: hover) and (pointer: fine) {
+    .terms-footer .contact-link:hover,
+    .terms-footer .contact-link:focus {
+        color: #0073e6;      /* subtle color change on hover */
+        cursor: pointer;
+    }
+}
+
+
 .footer-section a:hover {
     color: white;
 }
