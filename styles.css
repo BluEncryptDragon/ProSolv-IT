@@ -797,6 +797,23 @@ footer {
     color: white;
 }
 
+/* Fix: the footer Contact Info icons used emoji characters, which render
+   as a faint monochrome outline (instead of full color) on systems
+   without a color-emoji font installed — making them look blank/white
+   against the dark footer. Replaced with inline SVGs (same approach as
+   the Follow Us social icons below) so they render identically on every
+   browser and OS. They use currentColor, so they automatically match
+   the link's own color (#ccc, brightening to white on hover). */
+.contact-info li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-info .icon {
+    flex-shrink: 0;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
